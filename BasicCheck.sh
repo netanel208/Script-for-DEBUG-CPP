@@ -37,7 +37,7 @@ then
 				exitValue=$[ $exitValue-2 ]
 			fi
 			echo "helgrind:"
-			valgrind --tool=helgrind ./$executable $arguments 2>/dev/null 
+			valgrind --tool=helgrind --error-exitcode=1 ./$executable $arguments 2>/dev/null 
 			if [ $? -eq 0 ] 
 			then 
 				thread_race="Pass"
